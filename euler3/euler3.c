@@ -1,21 +1,15 @@
 #include <stdio.h>
 
-unsigned long sum_odd_until(unsigned long n)
+int main(void)
 {
-    unsigned long f1 = 1, f2 = 1, f3 = 2;
-    unsigned long s = 0;
-    while (f3 < n) {
-      f3 = f1 + f2;
+  unsigned long n = 600851475143;
+  unsigned long i;
 
-    if(!(f3%2)) s += f3;
+  for (i = 2; i < n; i++) {
+    while (!(n%i))
+      n /= i;
+  }
 
-      f1 = f2;
-      f2 = f3;
-    }
-    return s;
-}
-
-int main(void){
-    printf("%lu\n", sum_odd_until(4000000));
-    return 0;
+  printf("%lu \n", n);
+  return 0;
 }

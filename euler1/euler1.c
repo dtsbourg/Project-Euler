@@ -10,6 +10,5 @@ int main (void)
             s += i;
     }
     printf("Sum of all multiples of 3 or 5 is : %u\n", s);
-
   return 0;
 }
