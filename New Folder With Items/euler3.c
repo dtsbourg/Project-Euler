@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-unsigned long sum_odd_until(unsigned long n)
+int sum_odd_until(int n)
 {
-    unsigned long f1 = 1, f2 = 1, f3 = 2;
-    unsigned long s = 0;
+    unsigned int f1 = 1, f2 = 1, f3 = 2;
+    unsigned int s = 0;
     while (f3 < n) {
       f3 = f1 + f2;
 
@@ -16,6 +16,6 @@ unsigned long sum_odd_until(unsigned long n)
 }
 
 int main(void){
-    printf("%lu\n", sum_odd_until(4000000));
+    printf("%i\n", sum_odd_until(4000000));
     return 0;
 }
