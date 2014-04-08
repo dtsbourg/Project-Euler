@@ -1,30 +1,36 @@
 #include <stdio.h>
 
+unsigned long gcd(unsigned long a, unsigned long b )
+{
+    unsigned long result=0;
+    unsigned long x = a;
+    unsigned long y = b;
+
+    while (y)
+    {
+        result = x%y;
+        x=y;
+        y=result;
+    }
+    return x;
+}
+
+unsigned long lcm(unsigned long a, unsigned long b)
+{
+
+    return (a*b)/gcd(a,b);
+}
+
+
 int main (void)
 {
-    //Can not be smaller than product of primes < 24
-    unsigned long j=223092870;
-    unsigned int k=0;
-    unsigned int i=0;
-    while (1)
+    unsigned long n = 11;
+    unsigned int i=11;
+
+    for(i=11;i<=20;i++)
     {
-        printf("%lu\n", j);
-        for (i=1;i<=20;i++)
-        {
-            if(j%i == 0) k++;
-            else break;
-        }
-
-        if (k==20)
-        {
-            printf("%lu\n", j);
-            return 0;
-        }
-
-        else
-        {
-            j++;
-            k=0;
-        }
+        n = lcm(n,i);
     }
+
+    printf("%lu\n", n);
 }
